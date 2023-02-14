@@ -29,6 +29,10 @@ def generate_daycounter():
 
 
 def validate_date(date):
+    # Removing symbols out of the input
+    symbols = "/-."
+    for symbol in symbols:
+        date = date.replace(symbol, "")
     monthList = ["01", "03", "05", "07", "08", "10", "12"]
     if len(date) != 8:
         print("Invalid date")
@@ -55,10 +59,6 @@ def validate_date(date):
 
 
 def generate_insz(date):
-    # Removing symbols out of the input
-    symbols = "/-."
-    for symbol in symbols:
-        date = date.replace(symbol, "")
     # Generating a date if none is given
     if date == "":
         date = generate_date()
